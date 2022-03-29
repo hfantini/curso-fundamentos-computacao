@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <title>CERTSYS - CONTADOR DE CLIQUES</title>
+        <meta charset="UTF-8">
+        
+    </head>
+
+    <body>
+        
+        <div id="content">
+            
+        </div>
+
+        <br/>
+
+        <div>
+            <button onclick="onButtonClick()">Click me</button>
+        </div>
+
+        <!-- JAVASCRIPT -->
+
+        <script>
+
+            window.clickCount = 0;
+
+            function updateCounter()
+            {
+                document.getElementById("content").innerHTML = "Você clicou " + window.clickCount + " vezes";
+            }
+
+            function onButtonClick()
+            {
+                console.log("Hello World! #SomosTodosCertsys");
+                window.clickCount += 1;
+                updateCounter();
+            }
+
+            updateCounter();
+
+        </script>
+
+    </body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <title>CERTSYS - CONTADOR DE CLIQUES</title>
+        <meta charset="UTF-8">
+        <script src="jquery-3.6.0.min.js"></script>
+        
+        <style>
+
+            body
+            {
+                background-color: black;
+            }
+
+            #content
+            {
+                font-size: 24px;
+                color: white;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+        
+        <div id="content">
+            
+        </div>
+
+        <br/>
+
+        <div>
+            <button onclick="onButtonClick()">CLIQUE AQUI!</button>
+        </div>
+
+        <!-- JAVASCRIPT -->
+
+        <script>
+
+            function updateCounter()
+            {
+                $.get( "http://localhost:8080/counter", function( data ) 
+                {
+                    console.log(data);
+                    $( "#content" ).html("Você clicou " + data + " vezes");
+                });
+            }
+
+            function onButtonClick()
+            {
+                $.post( "http://localhost:8080/counter");
+
+                updateCounter();
+            }
+
+            updateCounter();
+
+            setTimeout(() => {
+                
+                updateCounter();
+
+            }, 100);
+
+        </script>
+
+    </body>
+
+</html>
